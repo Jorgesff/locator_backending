@@ -7,3 +7,19 @@ exports.setStatusRoute = (route, status = true)=>{
     return error;
   });
 }
+
+exports.getRouteById = (route) => {
+  return db.query("select * from routes where id_route = "+route).then((data) => {
+    return data;
+  }).catch((error) => {
+    return error;
+  })
+}
+
+exports.getRouteByName = (name) => {
+  return db.query("select * from routes where description = "+name).then((data) => {
+    return data;
+  }).catch((error) => {
+    return error;
+  });
+}
